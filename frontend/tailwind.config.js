@@ -9,7 +9,12 @@ export default {
     flowbite.content(),
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'sans': ['Helvetica', 'Arial', 'sans-serif'],
+        'serif': ['"Spectral"', 'Georgia'],
+      }
+    },
   },
   plugins: [
     flowbite.plugin(),
