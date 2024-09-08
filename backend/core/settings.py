@@ -27,12 +27,17 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    '8000-emidiovaler-petssocialn-ept4xoe88af.ws-us116.gitpod.io',
     '127.0.0.1',
 ]
 
-# CSRF_TRUSTED_ORIGINS = []
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-emidiovaler-petssocialn-ept4xoe88af.ws-us116.gitpod.io'
+]
 
-CORS_ALLOWED_ORIGINS = ['http://localhost:5173']
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:5173'    
+]
 
 # Application definition
 
