@@ -3,3 +3,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.header {
+    @apply shadow-sm fixed w-full h-16 z-50 bg-white top-0;
+}
+
+.navbar {
+    @apply flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4;
+}
+
+.signup::after {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 17px;
+    background: url('../src/assets/user.svg') no-repeat center center;
+    margin-left: .5rem;
+    position: relative;
+    top: 3px;
+}
