@@ -27,3 +27,15 @@
 .btn-primary {
     @apply min-w-32 text-base font-semibold text-yellow-900 bg-yellow-300 border border-none rounded-md px-3 py-4 cursor-pointer hover:outline-none hover:shadow-custom transition delay-75 focus:outline-none focus:shadow-custom disabled:opacity-50 disabled:cursor-not-allowed; 
 }
+
+.input {
+    @apply block w-full border border-gray-200 text-base p-3 rounded-xl bg-gray-200 transition delay-75 hover:outline-none hover:shadow-custom hover:bg-white hover:border-yellow-300 focus:outline-none focus:shadow-custom focus:bg-white focus:border-yellow-300;
+}
+
+.label {
+    @apply block text-base pb-2;
+}
+
+.error {
+    @apply text-red-500 text-sm mt-2;
+}
