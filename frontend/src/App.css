@@ -23,3 +23,7 @@
     position: relative;
     top: 3px;
 }
+
+.btn-primary {
+    @apply min-w-32 text-base font-semibold text-yellow-900 bg-yellow-300 border border-none rounded-md px-3 py-4 cursor-pointer hover:outline-none hover:shadow-custom transition delay-75 focus:outline-none focus:shadow-custom disabled:opacity-50 disabled:cursor-not-allowed; 
+}

@@ -13,7 +13,10 @@ export default {
       fontFamily: {
         'sans': ['Helvetica', 'Arial', 'sans-serif'],
         'serif': ['"Spectral"', 'Georgia'],
-      }
+      },
+      boxShadow: {
+        'custom': '0 0 0 3px #fea, 0 0 0 4px #fb1',
+      },
     },
   },
   plugins: [
