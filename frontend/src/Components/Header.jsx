@@ -10,8 +10,8 @@ const Header = () => {
             <Logo />
           </Link>
           <div className='space-x-2'>
-            <Link to='/signin'>Sign in</Link>
-            <Link to='/signup' className='signup'>Sign up</Link>
+            <Link to='/auth/signin'>Sign in</Link>
+            <Link to='/auth/signup' className='signup'>Sign up</Link>
           </div>
         </nav>
       </header>

@@ -10,10 +10,10 @@ const Signin = () => {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<SigninForm />} />
-        <Route path='signup' element={<SignupForm />} />
-        <Route path='forgot' element={<ForgotPassword />} />
-        <Route path='reset' element={<ResetPassword />} />
+        <Route path='/signin' element={<SigninForm />} />
+        <Route path='/signup' element={<SignupForm />} />
+        <Route path='/forgot' element={<ForgotPassword />} />
+        <Route path='/reset' element={<ResetPassword />} />
       </Routes>
     </div>
   )
