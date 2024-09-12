@@ -6,7 +6,7 @@ import ForgotPassword from './ForgotPassword'
 import ResetPassword from './ResetPassword'
 
 
-const Signin = () => {
+const Auth = () => {
   return (
     <div>
       <Routes>
@@ -19,4 +19,4 @@ const Signin = () => {
   )
 }
 
-export default Signin
+export default Auth
