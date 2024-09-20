@@ -5,7 +5,7 @@ import { UserContext } from '../UserContext';
 
 const Header = () => {
   const context = React.useContext(UserContext)
-  console.log(context.data.username)
+  
   return (
     <header className='header'>
       <nav className="navbar">

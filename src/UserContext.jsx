@@ -62,6 +62,9 @@ export const UserStorage = ({ children }) => {
         }
     }, []);
 
+    const user = data || {};
+    const username = user?.username || 'Guest';
+
     return (
         <UserContext.Provider value={{ userLogin, data, login, loading, error }}>
             {children}
