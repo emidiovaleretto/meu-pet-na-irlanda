@@ -1,32 +1,74 @@
-import React from 'react'
-import { TOKEN_POST, USER_GET } from './api'
+import { useEffect, useState, createContext } from 'react';
+import { LOGIN_POST, USER_GET } from './api';
 
-export const UserContext = React.createContext()
+export const UserContext = createContext();
 
 export const UserStorage = ({ children }) => {
-    const [data, setData] = React.useState(null)
-    const [login, setLogin] = React.useState(null)
-    const [loading, setLoading] = React.useState(false)
-    const [error, setError] = React.useState(null)
+    const [data, setData] = useState(null);
+    const [login, setLogin] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     async function getUser(token) {
-        const { url, options } = USER_GET(token)
-        const response = await fetch(url, options)
-        const json = await response.json()
-        setData(json)
-        setLogin(true)
+        try {
+            setError(null);
+            setLoading(true);
+            const { url, options } = USER_GET(token);
+            const response = await fetch(url, options);
+
+            if (!response.ok) throw new Error('Failed to fetch user data');
+
+            const json = await response.json();
+            setData(json);
+            setLogin(true);
+
+        } catch (err) {
+            console.log(err);
+            setError(err.message);
+            setLogin(false);
+
+        } finally {
+            setLoading(false);
+        }
     }
 
     async function userLogin(username, password) {
-        const { url, options } = TOKEN_POST({ username, password })
-        const response = await fetch(url, options)
-        const json = await response.json()
-        window.localStorage.setItem('token', json.token)
-        getUser(json.token)
+        try {
+            setError(null);
+            setLoading(true);
+            const { url, options } = LOGIN_POST({ username, password });
+            const response = await fetch(url, options);
+
+            if (!response.ok) throw new Error('Login failed');
+
+            const json = await response.json();
+
+            if (json.key) {
+                window.localStorage.setItem('key', json.key);
+                await getUser(json.key);
+            } else {
+                throw new Error('No token received from server');
+            }
+        } catch (err) {
+            setError(err.message);
+            setLogin(false);
+
+        } finally {
+            setLoading(false);
+        }
     }
+
+
+    useEffect(() => {
+        const token = window.localStorage.getItem('key');
+        if (token) {
+            getUser(token);
+        }
+    }, []);
+
     return (
-        <UserContext.Provider value={{ userLogin }}>
+        <UserContext.Provider value={{ userLogin, data, login, loading, error }}>
             {children}
         </UserContext.Provider>
-    )
-}
+    );
+};
