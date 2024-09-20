@@ -5,6 +5,7 @@ import { UserContext } from '../UserContext';
 
 const Header = () => {
   const context = React.useContext(UserContext)
+  console.log(context.data.username)
   return (
     <header className='header'>
       <nav className="navbar">
@@ -13,7 +14,7 @@ const Header = () => {
         </Link>
         <div className='space-x-2'>
           {context.data ? (
-            <Link to='/profile'>My profile</Link>
+            <Link to='/profile'>{context.data.username}</Link>
           ) : (
             <Link to='/auth/signin'>Sign in</Link>
           )}

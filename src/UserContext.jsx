@@ -21,12 +21,10 @@ export const UserStorage = ({ children }) => {
             const json = await response.json();
             setData(json);
             setLogin(true);
-
         } catch (err) {
             console.log(err);
             setError(err.message);
             setLogin(false);
-
         } finally {
             setLoading(false);
         }
@@ -44,7 +42,7 @@ export const UserStorage = ({ children }) => {
             const json = await response.json();
 
             if (json.key) {
-                window.localStorage.setItem('key', json.key);
+                window.localStorage.setItem('token', json.key);
                 await getUser(json.key);
             } else {
                 throw new Error('No token received from server');
@@ -52,15 +50,13 @@ export const UserStorage = ({ children }) => {
         } catch (err) {
             setError(err.message);
             setLogin(false);
-
         } finally {
             setLoading(false);
         }
     }
 
-
     useEffect(() => {
-        const token = window.localStorage.getItem('key');
+        const token = window.localStorage.getItem('token');
         if (token) {
             getUser(token);
         }

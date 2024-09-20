@@ -7,7 +7,6 @@ import Home from './Components/Home';
 import Auth from './Components/Auth/Auth';
 import './App.css';
 import { UserStorage } from './UserContext';
-import axios from 'axios';
 
 const App = () => {
   return <div>
